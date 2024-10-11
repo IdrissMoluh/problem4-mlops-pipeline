@@ -16,6 +16,10 @@ build:
   tools:
     python: "3.11"
 
+# Define environment variables
+conda:
+  environment: environment.yml
+
 # Optionally, you can define environment variables
 env:
   - PYTHONWARNINGS=default

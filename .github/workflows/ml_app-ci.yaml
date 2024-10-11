@@ -27,9 +27,11 @@ jobs:
 
       - name: Train Model
         run: |
+          source venv/bin/activate
           python -m ml_app.train
         env:
           DATA: '[ [5.1, 3.5, 1.4, 0.2], [4.9, 3.0, 1.4, 0.2] ]'
+        shell: bash
 
       - name: Save Model as Artifact
         uses: actions/upload-artifact@v3
@@ -41,15 +43,18 @@ jobs:
         run: |
           source venv/bin/activate
           python -m pytest
+        shell: bash
 
       - name: Build Documentation
         run: |
           source venv/bin/activate
           sphinx-build -b html docs/ docs/_build
+        shell: bash
 
-      - name: Upload Documentation to ReadTheDocs
+      - name: Upload Documentation as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: docs
           path: docs/_build
+
 

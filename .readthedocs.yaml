@@ -1,0 +1,21 @@
+# .readthedocs.yaml
+
+version: 2
+
+# Build documentation in the 'docs/' directory
+sphinx:
+  configuration: docs/conf.py
+
+# Install your Python dependencies
+python:
+  install:
+    - requirements: docs/requirements.txt
+
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.11"
+
+# Optionally, you can define environment variables
+env:
+  - PYTHONWARNINGS=default

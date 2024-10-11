@@ -22,7 +22,14 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          pip install --upgrade pip
           pip install -r requirements.txt
+        shell: bash
+
+      - name: Verify scikit-learn Installation
+        run: |
+          source venv/bin/activate
+          pip show scikit-learn
         shell: bash
 
       - name: Train Model
@@ -56,5 +63,6 @@ jobs:
         with:
           name: docs
           path: docs/_build
+
 
 
